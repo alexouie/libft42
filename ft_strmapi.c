@@ -18,7 +18,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*tab;
 	char	c;
 
-	tab = malloc(sizeof(char) * (strlen(s) + 1));
+	if (s == NULL || f == NULL)
+		return (NULL);
+	tab = malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (tab == NULL)
 		return (NULL);
 	i = 0;

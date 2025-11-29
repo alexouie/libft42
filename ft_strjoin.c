@@ -6,7 +6,7 @@
 /*   By: almanier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 12:56:17 by almanier          #+#    #+#             */
-/*   Updated: 2025/11/27 13:05:55 by almanier         ###   ########.fr       */
+/*   Updated: 2025/11/29 15:18:44 by almanier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 char	*ft_strjoin(const char *s1, const char *s2)
 
 {
-	size_t	len;
 	size_t	i;
 	size_t	j;
 	char	*cp;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	cp = malloc(len + 1);
+	if (s1 == NULL && s2 == NULL)
+		return (ft_strdup(""));
+	if (s1 == NULL)
+		return (ft_strdup(s2));
+	if (s2 == NULL)
+		return (ft_strdup(s1));
+	cp = malloc((ft_strlen(s1) + ft_strlen(s2) +1) * sizeof(char ));
 	if (cp == NULL)
 		return (NULL);
 	i = 0;
-	while (s1[i])
+	while (i < ft_strlen(s1))
 	{
 		cp[i] = s1[i];
 		i++;
